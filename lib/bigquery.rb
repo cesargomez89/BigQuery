@@ -10,7 +10,7 @@ class BigQuery
       application_version: opts['app_version']
     )
 
-    key = Google::APIClient::PKCS12.load_key(
+    key = Google::APIClient::KeyUtils.load_from_pkcs12(
       opts['key'],
       "notasecret"
     )
