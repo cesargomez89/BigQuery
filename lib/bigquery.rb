@@ -5,7 +5,10 @@ class BigQuery
   attr_accessor :dataset, :project_id
 
   def initialize(opts = {})
-    @client = Google::APIClient.new
+    @client = Google::APIClient.new(
+      application_name: opts['app_name'],
+      application_version: opts['app_version']
+    )
 
     key = Google::APIClient::PKCS12.load_key(
       opts['key'],
